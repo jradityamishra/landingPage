@@ -8,7 +8,7 @@ import mapImage from './public/Frame.png';
 import Contact from './component/Contact';
 import Footer from './component/Footer';
 import {features} from './component/feature';
-
+import Loading from './component/Loading';
 interface Data {
   subtitle: string;
   title: string;
@@ -42,7 +42,7 @@ function App() {
   }, [])
 
   if (!data.length) {
-    return <div>Loading...</div>
+    return <Loading />
   }
   return (
     <div className="ellipse-background min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden">
