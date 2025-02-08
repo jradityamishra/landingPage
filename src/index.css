@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ellipse-background {
+    background-image: url('./public/Ellipse_14.png');
+    background-position: center;
+    position: relative;
+    overflow: visible; /* Ensure overflow is visible */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keep background fixed */
+}
+
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Adjust height of the float */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.ellipse-background::before,
+.ellipse-background::after {
+    content: '';
+    position: absolute; /* Keep as absolute for sliding effect */
+    width: 150px; /* Size of the balls */
+    height: 150px; /* Size of the balls */
+    background-image: url('./public/Ellipse_14.png'); /* Ball image */
+    border-radius: 50%;
+    animation: float 2s ease-in-out infinite; /* Apply the float animation */
+    z-index: 10; /* Ensure balls are on top */
+}
+
+.ellipse-background::before {
+    left: 10%; /* Position on the left */
+    top: 12%; /* Center vertically */
+    transform: translateY(-50%);
+}
+
+.ellipse-background::after {
+    right: 10%; /* Position on the right */
+    top: 8%; /* Center vertically */
+    transform: translateY(-50%);
+}
+
+.square {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 866px; /* Width of the square */
+    height: 553px; /* Height of the square */
+    background-color: #0C0D0F; /* Background color */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.subtract-image {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100%; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
